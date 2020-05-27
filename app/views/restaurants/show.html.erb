@@ -9,7 +9,10 @@
       <% @reviews.each do |review| %>
         <li> "<%= review.content %>" | <%= review.rating %></li>
       <% end %>
-      <br><br>
       <%= link_to new_restaurant_review_path(@restaurant) do%>
-        <i class ="fa fa-comment"></i>
       <% end  %>
+    
+    <%= link_to "Delete #{@restaurant.name}",
+            restaurant_path(@restaurant),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
